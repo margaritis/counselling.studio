@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counselling Studio - Andreea Ramona Gheonea</title>
-    <link rel="stylesheet" href="styles.css">
+    
     <style>
         body {
             font-family: "Merriweather", serif;
@@ -100,6 +100,25 @@
             margin: auto;
             font-style: italic;
         }
+        .contact-apps-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+        .contact-apps-icons a img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease-in-out;
+            padding: 8px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .contact-apps-icons a img:hover {
+            transform: scale(1.15);
+        }
+
         iframe {
             width: 100%;
             height: 400px;
@@ -116,9 +135,8 @@
             box-shadow: 0px -6px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
-</head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16903592723"></script>    
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16903592723"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -130,119 +148,182 @@
   });
   gtag('js', new Date());
   gtag('config', 'AW-16903592723');
-</script>    
+</script>
+</head>
 <body>
     <header style="background: #5a6d57; color: white; padding: 80px 20px; text-align: center; font-size: 28px; font-weight: bold; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h1 style="margin: 0;">Καλώς ήρθατε στο Counselling Studio</h1>
-        <p class="hero-text" style="margin-top: 10px; font-size: 20px;">Βοηθώντας σας να βρείτε ισορροπία και ευεξία στη ζωή σας</p>
+        <h1 style="margin: 0;" data-lang="el">Καλώς ήρθατε στο Counselling Studio</h1>
+        <h1 style="margin: 0; display: none;" data-lang="en">Welcome to Counselling Studio</h1>
+        <p class="hero-text" style="margin-top: 10px; font-size: 20px;" data-lang="el">Βοηθώντας σας να βρείτε ισορροπία και ευεξία στη ζωή σας</p>
+        <p class="hero-text" style="margin-top: 10px; font-size: 20px; display: none;" data-lang="en">Helping you find balance and well-being in your life</p>
     </header>
     <nav>
-        <ul>
-            <li><a href="#about">Σχετικά</a></li>
-            <li><a href="#services">Υπηρεσίες</a></li>
-            <li><a href="#testimonials">Κριτικές</a></li>
-            <li><a href="#approach">Προσέγγιση</a></li>
-            <li><a href="#contact">Επικοινωνία</a></li>
+        
+        <ul style="display: flex; gap: 20px; justify-content: center; flex-wrap: nowrap;">
+            <li><a href="#about"><span data-lang="el">Σχετικά</span><span data-lang="en" style="display: none;">About</span></a></li>
+            <li><a href="#services"><span data-lang="el">Υπηρεσίες</span><span data-lang="en" style="display: none;">Services</span></a></li>
+            <li><a href="#testimonials"><span data-lang="el">Κριτικές</span><span data-lang="en" style="display: none;">Testimonials</span></a></li>
+            <li><a href="#approach"><span data-lang="el">Προσέγγιση</span><span data-lang="en" style="display: none;">Approach</span></a></li>
+            <li><a href="#contact"><span data-lang="el">Επικοινωνία</span><span data-lang="en" style="display: none;">Contact</span></a></li>
         </ul>
-    </nav>
-
-
-
+    <div style="position: absolute; top: 10px; right: 20px;">
+        <select id="languageSwitcher" onchange="switchLanguage(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;">
+            <option value="el" selected>🇬🇷</option>
+            <option value="en">🇬🇧</option>
+        </select>
+    </div>
+</nav>
+    
+    
+    
     <div style="text-align: center; margin: 40px 0;">
         <img src="https://lh3.googleusercontent.com/p/AF1QipMWMMlOkp1G__f7_fxWDQyWMpZCp9Jg_aGH5ks6=s680-w680-h510" alt="Andreea Ramona Gheonea" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin: 0 auto;">
     </div>
     <div style="text-align: center; margin: 20px 0;">
         <section class="cta" style="text-align: center;">
-            <h2>Κλείστε ραντεβού σήμερα!</h2>
-            <a href="tel:+306984767387" style="display: inline-block; background: #5a6d57; color: white; padding: 15px 25px; border-radius: 8px; font-size: 18px; text-decoration: none;">Καλέστε τώρα</a>
+            <h2><span data-lang="el">Κλείστε ραντεβού σήμερα!</span><span data-lang="en" style="display: none;">Book an appointment today!</span></h2>
+            <a href="tel:+306984767387" style="display: inline-block; background: #5a6d57; color: white; padding: 15px 25px; border-radius: 8px; font-size: 18px; text-decoration: none;"><span data-lang="el">Καλέστε τώρα</span><span data-lang="en" style="display: none;">Call Now</span></a>
         </section>
     </div>
     <section id="about">
     <section id="approach">
-        <h2>Προσέγγιση</h2>
-        <p>Η προσέγγισή μας βασίζεται στη δημιουργία ενός ασφαλούς και υποστηρικτικού περιβάλλοντος όπου οι πελάτες μπορούν να εκφραστούν ελεύθερα. Χρησιμοποιούμε τεχνικές όπως η Γνωσιακή Συμπεριφορική Θεραπεία (CBT), η προσωποκεντρική συμβουλευτική και η θεραπεία βασισμένη στη διαχείριση συναισθημάτων για να βοηθήσουμε τους πελάτες μας να αντιμετωπίσουν τις προκλήσεις τους και να αναπτύξουν στρατηγικές βελτίωσης της ζωής τους.</p>
+        <h2 data-lang="el">Προσέγγιση</h2>
+        <h2 data-lang="en" style="display: none;">Approach</h2>
+        <p data-lang="el">Η προσέγγισή μας βασίζεται στη δημιουργία ενός ασφαλούς και υποστηρικτικού περιβάλλοντος όπου οι πελάτες μπορούν να εκφραστούν ελεύθερα. Χρησιμοποιούμε τεχνικές όπως η Γνωσιακή Συμπεριφορική Θεραπεία (CBT), η προσωποκεντρική συμβουλευτική και η θεραπεία βασισμένη στη διαχείριση συναισθημάτων για να βοηθήσουμε τους πελάτες μας να αντιμετωπίσουν τις προκλήσεις τους και να αναπτύξουν στρατηγικές βελτίωσης της ζωής τους.</p>
+        <p data-lang="en" style="display: none;">Our approach is based on creating a safe and supportive environment where clients can express themselves freely. We use techniques such as Cognitive Behavioral Therapy (CBT), person-centered counseling, and emotion-focused therapy to help clients overcome challenges and develop strategies for improving their lives.</p>
     </section>
 
-        <p>Η Gheonea Andreea Ramona είναι Ψυχολόγος με πολυετή εμπειρία στην ψυχική υγεία. Σπούδασε Ψυχολογία στο Πανεπιστήμιο του Sheffield και κατέχει μεταπτυχιακό στη Συμβουλευτική Ψυχολογία. Εργάζεται από το 2010, παρέχοντας υποστήριξη σε άτομα με άγχος, κατάθλιψη, διατροφικές διαταραχές και άλλα θέματα ψυχικής υγείας.</p>
-
-
-        <p>Έχει εξειδικευτεί στη διαχείριση άγχους και στρες, κατάθλιψης, διατροφικών διαταραχών, συμβουλευτική LGBTQI+ ατόμων, διαχείριση θυμού, κρίσεις πανικού, καθώς και στη βελτίωση της αυτοεκτίμησης. Επιπλέον, έχει εμπειρία στη συμβουλευτική ζεύγους και στην υποστήριξη ατόμων που βιώνουν τοξικές σχέσεις.</p>
-
-        <p>Η φιλοσοφία της βασίζεται στη δημιουργία ενός ασφαλούς χώρου όπου οι πελάτες μπορούν να εκφραστούν ελεύθερα και να βρουν τις καλύτερες στρατηγικές διαχείρισης των προκλήσεων που αντιμετωπίζουν. Οι προσεγγίσεις της περιλαμβάνουν Γνωσιακή Συμπεριφορική Θεραπεία (CBT), προσωποκεντρική συμβουλευτική και θεραπεία βασισμένη στη διαχείριση συναισθημάτων.</p>
-    <p><strong>Αριθμός Άδειας:</strong> ΔΔΥΚΜ/Μ.Ε.Θ: 50972/2343</p>
+        <p data-lang="el">Η Gheonea Andreea Ramona είναι Ψυχολόγος με πολυετή εμπειρία στην ψυχική υγεία. Σπούδασε Ψυχολογία στο Πανεπιστήμιο του Sheffield και κατέχει μεταπτυχιακό στη Συμβουλευτική Ψυχολογία. Εργάζεται από το 2010, παρέχοντας υποστήριξη σε άτομα με άγχος, κατάθλιψη, διατροφικές διαταραχές και άλλα θέματα ψυχικής υγείας.</p>
+<p data-lang="en" style="display: none;">Gheonea Andreea Ramona is a psychologist with extensive experience in mental health. She studied Psychology at the University of Sheffield and holds a master's degree in Counseling Psychology. Since 2010, she has been providing support to individuals dealing with anxiety, depression, eating disorders, and other mental health concerns.</p>
+        
+        
+        <p data-lang="el">Έχει εξειδικευτεί στη διαχείριση άγχους και στρες, κατάθλιψης, διατροφικών διαταραχών, συμβουλευτική LGBTQI+ ατόμων, διαχείριση θυμού, κρίσεις πανικού, καθώς και στη βελτίωση της αυτοεκτίμησης. Επιπλέον, έχει εμπειρία στη συμβουλευτική ζεύγους και στην υποστήριξη ατόμων που βιώνουν τοξικές σχέσεις.</p>
+<p data-lang="en" style="display: none;">She specializes in managing anxiety and stress, depression, eating disorders, LGBTQI+ counseling, anger management, panic attacks, and self-esteem improvement. Additionally, she has experience in couples counseling and supporting individuals experiencing toxic relationships.</p>
+        
+        <p data-lang="el">Η φιλοσοφία της βασίζεται στη δημιουργία ενός ασφαλούς χώρου όπου οι πελάτες μπορούν να εκφραστούν ελεύθερα και να βρουν τις καλύτερες στρατηγικές διαχείρισης των προκλήσεων που αντιμετωπίζουν. Οι προσεγγίσεις της περιλαμβάνουν Γνωσιακή Συμπεριφορική Θεραπεία (CBT), προσωποκεντρική συμβουλευτική και θεραπεία βασισμένη στη διαχείριση συναισθημάτων.</p>
+<p data-lang="en" style="display: none;">Her philosophy is based on creating a safe space where clients can express themselves freely and find the best strategies to manage their challenges. Her approaches include Cognitive Behavioral Therapy (CBT), person-centered counseling, and emotion-focused therapy.</p>
+    <p><strong data-lang="el">Αριθμός Άδειας:</strong><strong data-lang="en" style="display: none;">Professional Identification Number:</strong> ΔΔΥΚΜ/Μ.Ε.Θ: 50972/2343</p>
     </section>
     <section id="delivery-methods">
-        <h2>Διαθέσιμες Μέθοδοι Συνεδρίας</h2>
+        <h2><span data-lang="el">Διαθέσιμες Μέθοδοι Συνεδρίας</span><span data-lang="en" style="display: none;">Available Session Methods</span></h2>
         <div class="delivery-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; align-items: center; text-align: center;">
             <div class="delivery-box" style="padding: 20px; background: #c0d6c0; border-radius: 10px; text-align: center; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);">
-                <strong>Συνεδρία μέσω βιντεοκλήσης</strong>
-                <p>Αποκτήστε πρόσβαση σε συμβουλευτική από την άνεση του χώρου σας.</p>
+                <strong data-lang="el">Συνεδρία μέσω βιντεοκλήσης</strong><strong data-lang="en" style="display: none;">Video Call Session</strong>
+                <p><span data-lang="el">Αποκτήστε πρόσβαση σε συμβουλευτική από την άνεση του χώρου σας.</span><span data-lang="en" style="display: none;">Access counseling from the comfort of your space.</span></p>
             </div>
             <div class="delivery-box" style="padding: 20px; background: #c0d6c0; border-radius: 10px; text-align: center; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);">
-                <strong>Συμβουλευτική Online</strong>
-                <p>Εύκολη και ασφαλής επικοινωνία μέσω διαδικτυακών πλατφορμών.</p>
+                <strong data-lang="el">Συμβουλευτική Online</strong><strong data-lang="en" style="display: none;">Online Counseling</strong>
+                <p><span data-lang="el">Εύκολη και ασφαλής επικοινωνία μέσω διαδικτυακών πλατφορμών.</span><span data-lang="en" style="display: none;">Easy and secure communication through online platforms.</span></p>
             </div>
                     <div class="delivery-box" style="padding: 20px; background: #c0d6c0; border-radius: 10px; text-align: center; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);">
-                <strong>Δια Ζώσης Συνεδρίες</strong>
-                <p>Συναντηθείτε μαζί μας στο γραφείο για προσωπικές συνεδρίες σε ένα ασφαλές και υποστηρικτικό περιβάλλον.</p>
+                <strong data-lang="el">Δια Ζώσης Συνεδρίες</strong><strong data-lang="en" style="display: none;">In-Person Sessions</strong>
+                <p><span data-lang="el">Συναντηθείτε μαζί μας στο γραφείο για προσωπικές συνεδρίες σε ένα ασφαλές και υποστηρικτικό περιβάλλον.</span><span data-lang="en" style="display: none;">Meet with us in our office for personalized sessions in a safe and supportive environment.</span></p>
             </div>
         </div>
     </section>
-
+    
     <section id="services">
-        <h2>Υπηρεσίες</h2>
+        <h2 data-lang="el">Υπηρεσίες</h2>
+        <h2 data-lang="en" style="display: none;">Services</h2>
         <div class="service-container">
-            <div class="service-box">Άγχος & Στρες</div>
-            <div class="service-box">Κατάθλιψη</div>
-            <div class="service-box">Διατροφικές Διαταραχές</div>
-            <div class="service-box">LGBTQI+ Υποστήριξη</div>
-            <div class="service-box">Θέματα Σχέσεων</div>
-            <div class="service-box">Συμβουλευτική Ζεύγους</div>
-            <div class="service-box">Κρίσεις Πανικού</div>
-            <div class="service-box">Διαταραχές Προσωπικότητας</div>
-                    <div class="service-box">Διαχείριση Θυμού</div>
-                    <div class="service-box">Τοξικές Σχέσεις</div>
-
-
+            <div class="service-box" data-lang="el">Άγχος & Στρες</div>
+            <div class="service-box" data-lang="en" style="display: none;">Anxiety & Stress</div>
+            <div class="service-box" data-lang="el">Κατάθλιψη</div>
+            <div class="service-box" data-lang="en" style="display: none;">Depression</div>
+            <div class="service-box" data-lang="el">Διατροφικές Διαταραχές</div>
+            <div class="service-box" data-lang="en" style="display: none;">Eating Disorders</div>
+            <div class="service-box" data-lang="el">LGBTQI+ Υποστήριξη</div>
+            <div class="service-box" data-lang="en" style="display: none;">LGBTQI+ Support</div>
+            <div class="service-box" data-lang="el">Θέματα Σχέσεων</div>
+            <div class="service-box" data-lang="en" style="display: none;">Relationship Issues</div>
+            <div class="service-box" data-lang="el">Συμβουλευτική Ζεύγους</div>
+            <div class="service-box" data-lang="en" style="display: none;">Couples Counseling</div>
+            <div class="service-box" data-lang="el">Κρίσεις Πανικού</div>
+            <div class="service-box" data-lang="en" style="display: none;">Panic Attacks</div>
+            <div class="service-box" data-lang="el">Διαταραχές Προσωπικότητας</div>
+            <div class="service-box" data-lang="en" style="display: none;">Personality Disorders</div>
+                    <div class="service-box" data-lang="el">Διαχείριση Θυμού</div>
+            <div class="service-box" data-lang="en" style="display: none;">Anger Management</div>
+                    <div class="service-box" data-lang="el">Τοξικές Σχέσεις</div>
+            <div class="service-box" data-lang="en" style="display: none;">Toxic Relationships</div>
+                    
+            
         </div>
     </section>
-
-    <section id="testimonials" class="testimonials">
-        <h2>Τι λένε οι πελάτες μας</h2>
-        <div class="testimonial-box">"Η Andreea Ramona ήταν καταπληκτική στη βοήθειά μου να διαχειριστώ το άγχος μου. Την προτείνω ανεπιφύλακτα!"</div>
+    <section id="contact-apps" class="cta" style="text-align: center; margin-top: 40px;">
+        <h2><span data-lang="el">Επικοινωνήστε μέσω εφαρμογών</span><span data-lang="en" style="display: none;">Contact via Apps</span></h2>
+        <div class="contact-apps-icons">
+            <a href="https://wa.me/306984767387" target="_blank" style="text-decoration: none;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; height: 30px; padding: 5px;">
+            </a>
+            <a href="viber://chat?number=306984767387" target="_blank" style="text-decoration: none;">
+                <img src="https://cdn.worldvectorlogo.com/logos/viber-icon.svg" alt="Viber" style="width: 30px; height: 30px; padding: 5px;">
+            </a>
+            <a href="skype:live:your.skype.id?chat" target="_blank" style="text-decoration: none;">
+                <img src="https://cdn.worldvectorlogo.com/logos/skype-1.svg" alt="Skype" style="width: 30px; height: 30px; padding: 5px;">
+            </a>
+        </div>
+    </section>
+<section id="testimonials" class="testimonials">
+        <h2><span data-lang="el">Τι λένε οι πελάτες μας</span>
+        <span data-lang="en" style="display: none;">What Our Clients Say</span></h2>
+        <div class="testimonial-box"> <span data-lang="el">“Η Andreea Ramona ήταν καταπληκτική στη βοήθειά μου να διαχειριστώ το άγχος μου. Την προτείνω ανεπιφύλακτα!”</span><span data-lang="en" style="display: none;">“Andreea Ramona was amazing in helping me manage my anxiety. I highly recommend her!”</span></div>
     </section>
     <section id="working-hours" style="background: #f9f6f1; padding: 40px; text-align: center; border-radius: 10px; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
-        <h2 style="color: #5a6d57;">Ωράριο Λειτουργίας</h2>
-        <p><strong>Δευτέρα - Παρασκευή:</strong> 09:00 - 21:00</p>
-        <p><strong>Σάββατο:</strong> 11:00 - 15:00 (Μόνο για online συνεδρίες)</p>
-        <p><strong>Κυριακή:</strong> Κλειστά</p>
+        <h2 style="color: #5a6d57;"><span data-lang="el">Ωράριο Λειτουργίας</span>
+        <span data-lang="en" style="display: none;">Opening Hours</span></h2>
+        <p><strong><span data-lang="el">Δευτέρα - Παρασκευή:</span>
+        <span data-lang="en" style="display: none;">Monday - Friday:</span></strong> 09:00 - 21:00</p>
+        <p style="text-align: center; display: flex; justify-content: center; align-items: center; gap: 5px;"><strong><span data-lang="el">Σάββατο:</span>
+        <span data-lang="en" style="display: none;">Saturday:</span></strong> <span>11:00 - 15:00 (</span><span data-lang="el">Μόνο για online συνεδρίες</span><span data-lang="en" style="display: none;">Only for online sessions</span>)</p>
+        <p><strong><span data-lang="el">Κυριακή:</span>
+        <span data-lang="en" style="display: none;">Sunday:</span></strong> <span data-lang="el">Κλειστά</span><span data-lang="en" style="display: none;">Closed</span></p>
     </section>
     <section id="contact" style="background: #ece8e1; padding: 50px; text-align: center; border-radius: 10px; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
-        <h2 style="color: #5a6d57;">Επικοινωνία</h2>
-
+        <h2 style="color: #5a6d57;" data-lang="el">Επικοινωνία</h2>
+        <h2 style="color: #5a6d57; display: none;" data-lang="en">Contact</h2>
+        
         <div style="display: flex; flex-direction: column; align-items: center;">
-            <p style="font-size: 18px; margin: 10px 0;"><strong>Τηλέφωνο:</strong> <a href="tel:+306984767387" style="color: #5a6d57; text-decoration: none; font-weight: bold;">6984767387</a></p>
-            <p style="font-size: 18px; margin: 10px 0;"><strong>Διεύθυνση:</strong> <a href="https://maps.app.goo.gl/AfipsS6mbWoGuuqW7" target="_blank" style="color: #5a6d57; text-decoration: none; font-weight: bold;">Γεωρ. Γεννηματά 7, Πυλαία 555 35</a></p>
+            <p style="font-size: 18px; margin: 10px 0; display: flex; align-items: center; gap: 5px;"><strong data-lang="el">Τηλέφωνο:</strong><strong data-lang="en" style="display: none;">Phone:</strong><a href="tel:+306984767387" style="color: #5a6d57; text-decoration: none; font-weight: bold;">6984767387</a></p>
+            <p style="font-size: 18px; margin: 10px 0; display: flex; align-items: center; gap: 5px;"><strong data-lang="el">Διεύθυνση:</strong> <strong data-lang="en" style="display: none;">Address:</strong>
+            <strong data-lang="en" style="display: none;">Address:</strong> <a href="https://maps.app.goo.gl/AfipsS6mbWoGuuqW7" target="_blank" style="color: #5a6d57; text-decoration: none; font-weight: bold; display: inline;"><span data-lang="el">Γεωρ. Γεννηματά 7, Πυλαία 555 35</span><span data-lang="en" style="display: none;">Geor. Gennimata 7, Pylaia 555 35</span></a></p>
         </div>
-
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.8356362218773!2d23.02049701576499!3d40.59276987934754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135f779f3b3b2fd7%3A0x2c5f9f9239c8e0c!2sGiorgou%20Gennimata%207%2C%20Pylaia%20555%2035%2C%20Greece!5e0!3m2!1sen!2s!4v1710456789012" width="100%" height="400" style="border:0; border-radius: 10px; margin-top: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2631.195990681581!2d22.97758200786729!3d40.593624765048354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a83982926c48a1%3A0x8688a8ab1818f933!2zQW5kcmVlYSBSYW1vbmEgR2hlb25lYSAtIM6oz4XPh86_zrvPjM6zzr_PgiAtIENvdW5zZWxsaW5nIFN0dWRpbw!5e1!3m2!1sel!2sgr!4v1741003381547!5m2!1sel!2sgr" width="100%" height="400" style="border:0; border-radius: 10px; margin-top: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
-
+    
     </section>
-
-
-
+    
+    
+    
+    
+    
     <footer>
         <p>&copy; 2024 Counselling Studio | Gheonea Andreea Ramona</p>
     </footer>
-    <div id="cookie-consent" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #333; padding: 20px; border-radius: 12px; text-align: center; font-size: 14px; width: 90%; max-width: 450px; z-index: 1000; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); display: block;">
-        <p style="margin-bottom: 15px; font-size: 16px; color: #555;">Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας. Επιλέξτε τις προτιμήσεις σας.</p>
+<!-- Calendly badge widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/andreea-gheonea/50min?primary_color=5a6d57', text: 'Schedule time with me', color: '#5a6d57', textColor: '#ffffff' }); }</script>
+<!-- Calendly badge widget end -->
+    
+<div id="cookie-consent" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #333; padding: 20px; border-radius: 12px; text-align: center; font-size: 14px; width: 90%; max-width: 450px; z-index: 1000; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); display: block;">
+        <p data-lang="el">Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας.</p>
+        <p data-lang="el">Επιλέξτε τις προτιμήσεις σας.</p>
+        <p data-lang="en" style="display: none;">We use cookies to enhance your experience.</p>
+        <p data-lang="en" style="display: none;">Select your preferences.</p>
         <div style="display: flex; justify-content: center; gap: 10px;">
-            <button onclick="acceptCookies()" style="background: #5a6d57; color: white; border: none; padding: 12px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;">Αποδοχή Όλων</button>
-            <button onclick="denyCookies()" style="background: #d9534f; color: white; border: none; padding: 12px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;">Απόρριψη</button>
+            <button onclick="acceptCookies()" style="background: #5a6d57; color: white; border: none; padding: 12px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;"><span data-lang="el">Αποδοχή Όλων</span><span data-lang="en" style="display: none;">Accept All</span></button>
+            <button onclick="denyCookies()" style="background: #d9534f; color: white; border: none; padding: 12px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;"><span data-lang="el">Απόρριψη</span><span data-lang="en" style="display: none;">Reject</span></button>
         </div>
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem('cookieConsent') === 'accepted') {
+                localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-consent').style.display = 'none';
+            }
+        });
         function acceptCookies() {
             gtag('consent', 'update', {
                 'ad_storage': 'granted',
@@ -261,6 +342,19 @@
             });
             document.getElementById('cookie-consent').style.display = 'none';
         }
+    </script>
+<script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+            });
+            localStorage.setItem('selectedLanguage', lang);
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'el';
+            document.getElementById('languageSwitcher').value = savedLang;
+            switchLanguage(savedLang);
+        });
     </script>
 </body>
 </html>
