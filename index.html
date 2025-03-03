@@ -321,7 +321,8 @@
         document.addEventListener("DOMContentLoaded", function() {
             if (localStorage.getItem('cookieConsent') === 'accepted') {
                 localStorage.setItem('cookieConsent', 'accepted');
-            document.getElementById('cookie-consent').style.display = 'none';
+                document.getElementById('cookie-consent').style.display = 'none';
+                acceptCookies();
             }
         });
         function acceptCookies() {
@@ -332,6 +333,7 @@
                 'ad_user_data': 'granted'
             });
             document.getElementById('cookie-consent').style.display = 'none';
+            localStorage.setItem('cookieConsent', 'accepted');
         }
         function denyCookies() {
             gtag('consent', 'update', {
