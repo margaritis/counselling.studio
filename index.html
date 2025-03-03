@@ -118,12 +118,15 @@
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16903592723"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16903592723"></script>    
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied'
+  });
   gtag('js', new Date());
-
   gtag('config', 'AW-16903592723');
 </script>    
 <body>
@@ -230,5 +233,28 @@
     <footer>
         <p>&copy; 2024 Counselling Studio | Gheonea Andreea Ramona</p>
     </footer>
+    <div id="cookie-consent" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #333; padding: 20px; border-radius: 12px; text-align: center; font-size: 14px; width: 90%; max-width: 450px; z-index: 1000; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); display: block;">
+        <p style="margin-bottom: 15px; font-size: 16px; color: #555;">Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας. Επιλέξτε τις προτιμήσεις σας.</p>
+        <div style="display: flex; justify-content: center; gap: 10px;">
+            <button onclick="acceptCookies()" style="background: #5a6d57; color: white; border: none; padding: 12px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;">Αποδοχή Όλων</button>
+            <button onclick="denyCookies()" style="background: #d9534f; color: white; border: none; padding: 12px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;">Απόρριψη</button>
+        </div>
+    </div>
+    <script>
+        function acceptCookies() {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
+            document.getElementById('cookie-consent').style.display = 'none';
+        }
+        function denyCookies() {
+            gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied'
+            });
+            document.getElementById('cookie-consent').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
