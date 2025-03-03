@@ -124,7 +124,9 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('consent', 'default', {
     'ad_storage': 'denied',
-    'analytics_storage': 'denied'
+    'analytics_storage': 'denied',
+    'ad_personalisation': 'denied',
+    'ad_user_data': 'denied'
   });
   gtag('js', new Date());
   gtag('config', 'AW-16903592723');
@@ -244,14 +246,18 @@
         function acceptCookies() {
             gtag('consent', 'update', {
                 'ad_storage': 'granted',
-                'analytics_storage': 'granted'
+                'analytics_storage': 'granted',
+                'ad_personalisation': 'granted',
+                'ad_user_data': 'granted'
             });
             document.getElementById('cookie-consent').style.display = 'none';
         }
         function denyCookies() {
             gtag('consent', 'update', {
                 'ad_storage': 'denied',
-                'analytics_storage': 'denied'
+                'analytics_storage': 'denied',
+                'ad_personalisation': 'denied',
+                'ad_user_data': 'denied'
             });
             document.getElementById('cookie-consent').style.display = 'none';
         }
