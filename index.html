@@ -169,6 +169,20 @@
   });
   gtag('js', new Date());
   gtag('config', 'AW-16903592723');
+
+  function gtag_report_conversion(url) {
+      var callback = function () {
+          if (typeof(url) != 'undefined') {
+              window.location = url;
+          }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-16903592723/gTIlCKHVlKYaEJO2ofw-',
+          'event_callback': callback
+      });
+      return false;
+  }
+    
 </script>
 </head>
 <body>
@@ -203,7 +217,7 @@
     <div style="text-align: center; margin: 20px 0;">
         <section class="cta" style="text-align: center;">
             <h2><span data-lang="el">Κλείστε ραντεβού σήμερα!</span><span data-lang="en" style="display: none;">Book an appointment today!</span></h2>
-            <a href="tel:+306984767387" style="display: inline-block; background: #5a6d57; color: white; padding: 15px 25px; border-radius: 8px; font-size: 18px; text-decoration: none;"><span data-lang="el">Καλέστε τώρα</span><span data-lang="en" style="display: none;">Call Now</span></a>
+            <a onclick="gtag_report_conversion('tel:+306984767387')" href="tel:+306984767387" style="display: inline-block; background: #5a6d57; color: white; padding: 15px 25px; border-radius: 8px; font-size: 18px; text-decoration: none;"><span data-lang="el">Καλέστε τώρα</span><span data-lang="en" style="display: none;">Call Now</span></a>
         </section>
     </div>
     <section id="about">
@@ -296,13 +310,13 @@
     <section id="contact-apps" class="cta" style="text-align: center; margin-top: 40px;">
         <h2><span data-lang="el">Επικοινωνήστε μαζί μας</span><span data-lang="en" style="display: none;">Contact Us</span></h2>
         <div class="contact-apps-icons">
-            <a href="https://wa.me/306984767387" target="_blank" style="text-decoration: none;">
+            <a onclick="gtag_report_conversion('https://wa.me/306984767387')" href="https://wa.me/306984767387" target="_blank" style="text-decoration: none;">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; height: 30px; padding: 5px;">
             </a>
-            <a href="viber://contact?number=%2B306984767387" target="_blank" style="text-decoration: none;">
+            <a onclick="gtag_report_conversion('viber://contact?number=%2B306984767387')" href="viber://contact?number=%2B306984767387" target="_blank" style="text-decoration: none;">
               <img src="https://cdn.worldvectorlogo.com/logos/viber-icon.svg" alt="Viber" style="width: 30px; height: 30px; padding: 5px;">
             </a>
-            <a href="skype:live:.cid.b37c15f173b4fead?chat" target="_blank" style="text-decoration: none;">
+            <a onclick="gtag_report_conversion('skype:live:.cid.b37c15f173b4fead?chat')" href="skype:live:.cid.b37c15f173b4fead?chat" target="_blank" style="text-decoration: none;">
                 <img src="https://cdn.worldvectorlogo.com/logos/skype-1.svg" alt="Skype" style="width: 30px; height: 30px; padding: 5px;">
             </a>
         </div>
