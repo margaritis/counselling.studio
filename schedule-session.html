@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counselling Studio - Andreea Ramona Gheonea</title>
+    
+    <style>
+        body {
+            font-family: "Merriweather", serif;
+            background-color: #f9f6f1;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+        header {
+            background: linear-gradient(135deg, #4a6356, #2c4033);
+            color: white;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            background: #4a6356;
+            margin: 0;
+            padding: 15px 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .hero-text {
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            margin-top: -40px;
+        }
+        section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 50px;
+            background: white;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 14px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+        .service-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .service-box {
+            padding: 20px;
+            background: #d8e0dc;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta a {
+            display: inline-block;
+            background: #5a6d57;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .cta a:hover {
+            background: #495b45;
+        }
+        .testimonials {
+            background: #ece8e1;
+            padding: 50px;
+            text-align: center;
+        }
+        .testimonial-box {
+            max-width: 800px;
+            margin: auto;
+            font-style: italic;
+        }
+        .contact-apps-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+        .contact-apps-icons a img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease-in-out;
+            padding: 8px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .contact-apps-icons a img:hover {
+            transform: scale(1.15);
+        }
+
+        .contact-apps-icons a {
+            line-height: 1;
+        }
+
+        #seo-content {
+            background: #ffffff;
+            padding: 40px;
+            margin: 50px auto;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        #seo-content h2 {
+            color: #2c4033;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        #seo-content h3 {
+            color: #5a6d57;
+            font-size: 22px;
+            margin-top: 30px;
+        }
+        #seo-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        #seo-content ul li {
+            background: #e5ece7;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 150px; /* Ensures enough space for text */
+        }
+
+        .testimonial-box {
+            text-align: center;
+            font-style: italic;
+            padding: 20px;
+            width: 100%;
+            opacity: 0;
+            position: absolute;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .testimonial-box.active {
+            opacity: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .prev-testimonial,
+        .next-testimonial {
+            background-color: #5a6d57;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            z-index: 3; /* Ensures the buttons are above the text */
+        }
+
+        .prev-testimonial {
+            left: 0px; /* Adjusted for better spacing */
+        }
+
+        .next-testimonial {
+            right: 0px; /* Adjusted for better spacing */
+        }
+
+        .prev-testimonial:hover,
+        .next-testimonial:hover {
+            background-color: #495b45;
+        }
+
+        @media only screen and (max-device-width: 500px) {
+            .testimonial-box {
+                width: 65%;
+            }
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #2c4033;
+            color: white;
+            font-size: 14px;
+            margin-top: 50px;
+            box-shadow: 0px -6px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16903592723"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_personalization': 'denied',
+        'ad_user_data': 'denied'
+      });
+      gtag('js', new Date());
+      gtag('config', 'AW-16903592723');
+    </script>
+</head>
+<body>
+
+    <header style="background: #5a6d57; color: white; text-align: center; font-size: 28px; font-weight: bold; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h1 style="margin: 0;" data-lang="el">Counselling Studio</h1>
+        <h1 style="margin: 0; display: none;" data-lang="en">Counselling Studio</h1>
+        <p class="hero-text" style="margin-top: 10px; font-size: 20px;" data-lang="el">Βοηθώντας σας να βρείτε ισορροπία και ευεξία στη ζωή σας</p>
+        <p class="hero-text" style="margin-top: 10px; font-size: 20px; display: none;" data-lang="en">Helping you find balance and well-being in your life</p>
+    </header>
+
+    <nav>
+        <ul style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <li><a href="/#about"><span data-lang="el">Σχετικά</span><span data-lang="en" style="display: none;">About</span></a></li>
+            <li><a href="/#approach"><span data-lang="el">Προσέγγιση</span><span data-lang="en" style="display: none;">Approach</span></a></li>
+            <li><a href="/#services"><span data-lang="el">Υπηρεσίες</span><span data-lang="en" style="display: none;">Services</span></a></li>
+            <li><a href="#testimonials"><span data-lang="el">Κριτικές</span><span data-lang="en" style="display: none;">Testimonials</span></a></li>
+            <li><a href="/#contact"><span data-lang="el">Επικοινωνία</span><span data-lang="en" style="display: none;">Contact</span></a></li>
+        </ul>
+        <div style="position: absolute; top: 10px; right: 20px;">
+            <select id="languageSwitcher" onchange="switchLanguage(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;">
+                <option value="el" selected>🇬🇷</option>
+                <option value="en">🇬🇧</option>
+            </select>
+        </div>
+    </nav>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <section class="cta" style="text-align: center;">
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/andreea-gheonea/50min?background_color=f9f6f1&primary_color=5a6d57" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+        </section>
+    </div>
+    <section id="about">
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipMWMMlOkp1G__f7_fxWDQyWMpZCp9Jg_aGH5ks6=s680-w680-h510" alt="Andreea Ramona Gheonea" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin: 0 auto;">
+        </div>
+        <section id="approach">
+            <h2 data-lang="el">Προσέγγιση</h2>
+            <h2 data-lang="en" style="display: none;">Approach</h2>
+
+            <p data-lang="el">"Δεν είμαι αυτό που μου συνέβη, είμαι αυτό που επιλέγω να γίνω" - Καρλ Γιουνγκ.</p>
+
+            <p data-lang="en" style="display: none;">"I am not what happened to me, I am what I choose to become" - Carl Jung.</p>
+
+            <p data-lang="el">Στην συνεδρίες μου με τους πελάτες, υιοθετώ μια εκλεκτική θεραπευτική προσέγγιση που ενσωματώνει διάφορες θεωρητικές προσεγγίσεις όπως η προσωποκεντρική, η ψυχοδυναμική και η γνωστική-συμπεριφοριστική, ανάλογα με το εκάστοτε ζήτημα που παρουσιάζεται και αυτό που λειτουργεί καλύτερα για αυτούς.</p>
+
+            <p data-lang="en" style="display: none;">In my work with the clients, I adopt an eclectic therapeutic style employing various theoretical approaches such as person-centered, psychodynamic, and cognitive-behavioral, depending on the presenting problem and what works best for them.</p>
+
+            <p data-lang="el">Ένα θεμελιώδες στοιχείο της πρακτικής μου είναι να ακούω χωρίς προκαταλήψεις και να αναπτύσσω μια συμπονετική, αυθεντική και ισότιμη θεραπευτική σχέση με τους πελάτες μου.</p>
+
+            <p data-lang="en" style="display: none;">A fundamental component of my practice is to listen nonjudgmentally and develop a compassionate, genuine, and equal therapeutic relationship with my clients.</p>
+        </section>
+
+        <p><strong data-lang="el">Αριθμός Άδειας:</strong><strong data-lang="en" style="display: none;">Professional Identification Number:</strong> ΔΔΥΚΜ/Μ.Ε.Θ: 50972/2343</p>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>
+            <span data-lang="el">Γνώμες και Εμπειρίες από τη Συμβουλευτική θεραπεία</span>
+            <span data-lang="en" style="display: none;">What Our Clients Say</span>
+        </h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-box" active>
+                <p data-lang="el" >“Η Andreea Ramona ήταν καταπληκτική στη βοήθειά μου να διαχειριστώ το άγχος μου. Την προτείνω ανεπιφύλακτα!”</p>
+                <p data-lang="en" style="display: none;">“Andreea Ramona was amazing in helping me manage my anxiety. I highly recommend her!”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Μια εξαιρετική επαγγελματίας που με βοήθησε να ξεπεράσω τις δυσκολίες μου.”</p>
+                <p data-lang="en" style="display: none;">“An excellent professional who helped me overcome my difficulties.”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Πολύ ευγενική και καταρτισμένη, μου έδωσε πολύτιμες συμβουλές.”</p>
+                <p data-lang="en" style="display: none;">“Very kind and knowledgeable, provided me with valuable advice.”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Εξαιρετική Ψυχολόγος με άριστη γνώση του αντικειμένου! Ενας άνθρωπος με ενσυναίσθηση, σεβασμό και ευγένεια προς τον άλλον. Σου εμπνέει εμπιστοσύνη.”</p>
+                <p data-lang="en" style="display: none;">“An exceptional psychologist with deep expertise in the field! A professional who shows empathy, respect, and kindness towards others, making you feel understood and trusted.”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Εξαιρετική επαγγελματίας, κατάλαβε απευθείας τις ανάγκες μου και βοήθησε πάρα πολυ! Ευχαριστώ ειλικρινά!”</p>
+                <p data-lang="en" style="display: none;">“An outstanding professional who immediately understood my needs and provided tremendous help! I sincerely appreciate it!”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Εξαιρετική ψυχολόγος και άνθρωπος με τεράστιες γνώσεις στο αντικείμενό της!”</p>
+                <p data-lang="en" style="display: none;">“An exceptional psychologist and a truly caring person with extensive knowledge in her field, providing professional and insightful support.”</p>
+            </div>
+
+            <button class="prev-testimonial">&#10094;</button>
+            <button class="next-testimonial">&#10095;</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Counselling Studio | Gheonea Andreea Ramona</p>
+    </footer>
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+    <div id="cookie-consent" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #333; padding: 20px; border-radius: 12px; text-align: center; font-size: 14px; width: 90%; max-width: 450px; z-index: 1000; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); display: block;">
+        <p data-lang="el">Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας.</p>
+        <p data-lang="el">Επιλέξτε τις προτιμήσεις σας.</p>
+        <p data-lang="en" style="display: none;">We use cookies to enhance your experience.</p>
+        <p data-lang="en" style="display: none;">Select your preferences.</p>
+        <div style="display: flex; justify-content: center; gap: 10px;">
+            <button onclick="acceptCookies()" style="background: #5a6d57; color: white; border: none; padding: 12px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;"><span data-lang="el">Αποδοχή Όλων</span><span data-lang="en" style="display: none;">Accept All</span></button>
+            <button onclick="denyCookies()" style="background: #d9534f; color: white; border: none; padding: 12px 18px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold;"><span data-lang="el">Απόρριψη</span><span data-lang="en" style="display: none;">Reject</span></button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem('cookieConsent') === 'accepted') {
+                localStorage.setItem('cookieConsent', 'accepted');
+                document.getElementById('cookie-consent').style.display = 'none';
+                acceptCookies();
+            }
+        });
+        function acceptCookies() {
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted',
+                'ad_personalization': 'granted',
+                'ad_user_data': 'granted'
+            });
+            document.getElementById('cookie-consent').style.display = 'none';
+            localStorage.setItem('cookieConsent', 'accepted');
+        }
+        function denyCookies() {
+            gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'ad_personalization': 'denied',
+                'ad_user_data': 'denied'
+            });
+            document.getElementById('cookie-consent').style.display = 'none';
+        }
+    </script>
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+            });
+            localStorage.setItem('selectedLanguage', lang);
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'el';
+            document.getElementById('languageSwitcher').value = savedLang;
+            switchLanguage(savedLang);
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            let testimonials = document.querySelectorAll(".testimonial-box");
+            let currentIndex = 0;
+
+            function showTestimonial(index) {
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.classList.remove("active");
+                    if (i === index) {
+                        testimonial.classList.add("active");
+                    }
+                });
+            }
+
+            function nextTestimonial() {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                showTestimonial(currentIndex);
+            }
+
+            function prevTestimonial() {
+                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                showTestimonial(currentIndex);
+            }
+
+            document.querySelector(".next-testimonial").addEventListener("click", nextTestimonial);
+            document.querySelector(".prev-testimonial").addEventListener("click", prevTestimonial);
+
+            showTestimonial(currentIndex);
+            setInterval(nextTestimonial, 5000); // Change every 5 seconds
+        });
+    </script>
+</body>
+</html>
