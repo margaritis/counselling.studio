@@ -138,6 +138,67 @@
             padding: 15px;
             border-radius: 8px;
             font-size: 18px;
+        }    
+
+        .testimonial-slider {
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 150px; /* Ensures enough space for text */
+        }
+
+        .testimonial-box {
+            text-align: center;
+            font-style: italic;
+            padding: 20px;
+            width: 100%;
+            opacity: 0;
+            position: absolute;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .testimonial-box.active {
+            opacity: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .prev-testimonial,
+        .next-testimonial {
+            background-color: #5a6d57;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            z-index: 3; /* Ensures the buttons are above the text */
+        }
+
+        .prev-testimonial {
+            left: 0px; /* Adjusted for better spacing */
+        }
+
+        .next-testimonial {
+            right: 0px; /* Adjusted for better spacing */
+        }
+
+        .prev-testimonial:hover,
+        .next-testimonial:hover {
+            background-color: #495b45;
+        }
+
+        @media only screen and (max-device-width: 500px) {
+            .testimonial-box {
+                width: 65%;
+            }
         }        
 
         iframe {
@@ -156,34 +217,33 @@
             box-shadow: 0px -6px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16903592723"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'ad_personalization': 'denied',
-    'ad_user_data': 'denied'
-  });
-  gtag('js', new Date());
-  gtag('config', 'AW-16903592723');
-
-  function gtag_report_conversion(url) {
-      var callback = function () {
-          if (typeof(url) != 'undefined') {
-              window.location = url;
-          }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-16903592723/gTIlCKHVlKYaEJO2ofw-',
-          'event_callback': callback
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16903592723"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_personalization': 'denied',
+        'ad_user_data': 'denied'
       });
-      return false;
-  }
-    
-</script>
+      gtag('js', new Date());
+      gtag('config', 'AW-16903592723');
+
+      function gtag_report_conversion(url) {
+          var callback = function () {
+              if (typeof(url) != 'undefined') {
+                  window.location = url;
+              }
+          };
+          gtag('event', 'conversion', {
+              'send_to': 'AW-16903592723/gTIlCKHVlKYaEJO2ofw-',
+              'event_callback': callback
+          });
+          return false;
+      }
+    </script>
 </head>
 <body>
     <header style="background: #5a6d57; color: white; text-align: center; font-size: 28px; font-weight: bold; display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -201,15 +261,13 @@
             <li><a href="#testimonials"><span data-lang="el">Κριτικές</span><span data-lang="en" style="display: none;">Testimonials</span></a></li>
             <li><a href="#contact"><span data-lang="el">Επικοινωνία</span><span data-lang="en" style="display: none;">Contact</span></a></li>
         </ul>
-    <div style="position: absolute; top: 10px; right: 20px;">
-        <select id="languageSwitcher" onchange="switchLanguage(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;">
-            <option value="el" selected>🇬🇷</option>
-            <option value="en">🇬🇧</option>
-        </select>
-    </div>
-</nav>
-    
-    
+        <div style="position: absolute; top: 10px; right: 20px;">
+            <select id="languageSwitcher" onchange="switchLanguage(this.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px;">
+                <option value="el" selected>🇬🇷</option>
+                <option value="en">🇬🇧</option>
+            </select>
+        </div>
+    </nav>
     
     <div style="text-align: center; margin: 40px 0;">
         <img src="https://lh3.googleusercontent.com/p/AF1QipMWMMlOkp1G__f7_fxWDQyWMpZCp9Jg_aGH5ks6=s680-w680-h510" alt="Andreea Ramona Gheonea" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin: 0 auto;">
@@ -229,15 +287,15 @@
     </section>
 
         <p data-lang="el">Η Andreea R. Gheonea είναι Ψυχολόγος με πολυετή εμπειρία στην ψυχική υγεία. Σπούδασε Ψυχολογία στο Πανεπιστήμιο του Sheffield και κατέχει μεταπτυχιακό στη Συμβουλευτική Ψυχολογία. Εργάζεται από το 2010, παρέχοντας υποστήριξη σε άτομα με άγχος, κατάθλιψη, διατροφικές διαταραχές και άλλα θέματα ψυχικής υγείας.</p>
-<p data-lang="en" style="display: none;">Andreea R. Gheonea is a psychologist with extensive experience in mental health. She studied Psychology at the University of Sheffield and holds a master's degree in Counseling Psychology. Since 2010, she has been providing support to individuals dealing with anxiety, depression, eating disorders, and other mental health concerns.</p>
+        <p data-lang="en" style="display: none;">Andreea R. Gheonea is a psychologist with extensive experience in mental health. She studied Psychology at the University of Sheffield and holds a master's degree in Counseling Psychology. Since 2010, she has been providing support to individuals dealing with anxiety, depression, eating disorders, and other mental health concerns.</p>
         
         
         <p data-lang="el">Έχει εξειδικευτεί στη διαχείριση άγχους και στρες, κατάθλιψης, διατροφικών διαταραχών, συμβουλευτική LGBTQI+ ατόμων, διαχείριση θυμού, κρίσεις πανικού, καθώς και στη βελτίωση της αυτοεκτίμησης. Επιπλέον, έχει εμπειρία στη συμβουλευτική ζεύγους και στην υποστήριξη ατόμων που βιώνουν τοξικές σχέσεις.</p>
-<p data-lang="en" style="display: none;">She specializes in managing anxiety and stress, depression, eating disorders, LGBTQI+ counseling, anger management, panic attacks, and self-esteem improvement. Additionally, she has experience in couples counseling and supporting individuals experiencing toxic relationships.</p>
+        <p data-lang="en" style="display: none;">She specializes in managing anxiety and stress, depression, eating disorders, LGBTQI+ counseling, anger management, panic attacks, and self-esteem improvement. Additionally, she has experience in couples counseling and supporting individuals experiencing toxic relationships.</p>
         
         <p data-lang="el">Η φιλοσοφία της βασίζεται στη δημιουργία ενός ασφαλούς χώρου όπου οι πελάτες μπορούν να εκφραστούν ελεύθερα και να βρουν τις καλύτερες στρατηγικές διαχείρισης των προκλήσεων που αντιμετωπίζουν. Οι προσεγγίσεις της περιλαμβάνουν Γνωσιακή Συμπεριφορική Θεραπεία (CBT), προσωποκεντρική συμβουλευτική και θεραπεία βασισμένη στη διαχείριση συναισθημάτων.</p>
-<p data-lang="en" style="display: none;">Her philosophy is based on creating a safe space where clients can express themselves freely and find the best strategies to manage their challenges. Her approaches include Cognitive Behavioral Therapy (CBT), person-centered counseling, and emotion-focused therapy.</p>
-    <p><strong data-lang="el">Αριθμός Άδειας:</strong><strong data-lang="en" style="display: none;">Professional Identification Number:</strong> ΔΔΥΚΜ/Μ.Ε.Θ: 50972/2343</p>
+        <p data-lang="en" style="display: none;">Her philosophy is based on creating a safe space where clients can express themselves freely and find the best strategies to manage their challenges. Her approaches include Cognitive Behavioral Therapy (CBT), person-centered counseling, and emotion-focused therapy.</p>
+        <p><strong data-lang="el">Αριθμός Άδειας:</strong><strong data-lang="en" style="display: none;">Professional Identification Number:</strong> ΔΔΥΚΜ/Μ.Ε.Θ: 50972/2343</p>
     </section>
     <section id="delivery-methods">
         <h2><span data-lang="el">Διαθέσιμες Μέθοδοι Συνεδρίας</span><span data-lang="en" style="display: none;">Available Session Methods</span></h2>
@@ -321,10 +379,40 @@
             </a>
         </div>
     </section>
-<section id="testimonials" class="testimonials">
-        <h2><span data-lang="el">Τι λένε οι πελάτες μας</span>
-        <span data-lang="en" style="display: none;">What Our Clients Say</span></h2>
-        <div class="testimonial-box"> <span data-lang="el">“Η Andreea Ramona ήταν καταπληκτική στη βοήθειά μου να διαχειριστώ το άγχος μου. Την προτείνω ανεπιφύλακτα!”</span><span data-lang="en" style="display: none;">“Andreea Ramona was amazing in helping me manage my anxiety. I highly recommend her!”</span></div>
+    <section id="testimonials" class="testimonials">
+        <h2>
+            <span data-lang="el">Γνώμες και Εμπειρίες από τη Συμβουλευτική θεραπεία</span>
+            <span data-lang="en" style="display: none;">What Our Clients Say</span>
+        </h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-box" active>
+                <p data-lang="el" >“Η Andreea Ramona ήταν καταπληκτική στη βοήθειά μου να διαχειριστώ το άγχος μου. Την προτείνω ανεπιφύλακτα!”</p>
+                <p data-lang="en" style="display: none;">“Andreea Ramona was amazing in helping me manage my anxiety. I highly recommend her!”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Μια εξαιρετική επαγγελματίας που με βοήθησε να ξεπεράσω τις δυσκολίες μου.”</p>
+                <p data-lang="en" style="display: none;">“An excellent professional who helped me overcome my difficulties.”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Πολύ ευγενική και καταρτισμένη, μου έδωσε πολύτιμες συμβουλές.”</p>
+                <p data-lang="en" style="display: none;">“Very kind and knowledgeable, provided me with valuable advice.”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Εξαιρετική Ψυχολόγος με άριστη γνώση του αντικειμένου! Ενας άνθρωπος με ενσυναίσθηση, σεβασμό και ευγένεια προς τον άλλον. Σου εμπνέει εμπιστοσύνη.”</p>
+                <p data-lang="en" style="display: none;">“An exceptional psychologist with deep expertise in the field! A professional who shows empathy, respect, and kindness towards others, making you feel understood and trusted.”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Εξαιρετική επαγγελματίας, κατάλαβε απευθείας τις ανάγκες μου και βοήθησε πάρα πολυ! Ευχαριστώ ειλικρινά!”</p>
+                <p data-lang="en" style="display: none;">“An outstanding professional who immediately understood my needs and provided tremendous help! I sincerely appreciate it!”</p>
+            </div>
+            <div class="testimonial-box">
+                <p data-lang="el">“Εξαιρετική ψυχολόγος και άνθρωπος με τεράστιες γνώσεις στο αντικείμενό της!”</p>
+                <p data-lang="en" style="display: none;">“An exceptional psychologist and a truly caring person with extensive knowledge in her field, providing professional and insightful support.”</p>
+            </div>
+
+            <button class="prev-testimonial">&#10094;</button>
+            <button class="next-testimonial">&#10095;</button>
+        </div>
     </section>
     <section id="working-hours" style="background: #f9f6f1; text-align: center; border-radius: 10px; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
         <h2 style="color: #5a6d57;"><span data-lang="el">Ωράριο Λειτουργίας</span>
@@ -349,22 +437,17 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2631.195990681581!2d22.97758200786729!3d40.593624765048354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a83982926c48a1%3A0x8688a8ab1818f933!2zQW5kcmVlYSBSYW1vbmEgR2hlb25lYSAtIM6oz4XPh86_zrvPjM6zzr_PgiAtIENvdW5zZWxsaW5nIFN0dWRpbw!5e1!3m2!1sel!2sgr!4v1741003381547!5m2!1sel!2sgr" width="100%" height="400" style="border:0; border-radius: 10px; margin-top: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
     
-    </section>
-    
-    
-    
-    
     
     <footer>
         <p>&copy; 2025 Counselling Studio | Andreea Ramona Gheonea</p>
     </footer>
-<!-- Calendly badge widget begin -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/andreea-gheonea/50min?primary_color=5a6d57&background_color=f9f6f1', text: 'Προγραμματίστε συνεδρία', color: '#5a6d57', textColor: '#ffffff' }); }</script>
-<!-- Calendly badge widget end -->
+    <!-- Calendly badge widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/andreea-gheonea/50min?primary_color=5a6d57&background_color=f9f6f1', text: 'Προγραμματίστε συνεδρία', color: '#5a6d57', textColor: '#ffffff' }); }</script>
+    <!-- Calendly badge widget end -->
     
-<div id="cookie-consent" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #333; padding: 20px; border-radius: 12px; text-align: center; font-size: 14px; width: 90%; max-width: 450px; z-index: 1000; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); display: block;">
+    <div id="cookie-consent" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ffffff; color: #333; padding: 20px; border-radius: 12px; text-align: center; font-size: 14px; width: 90%; max-width: 450px; z-index: 1000; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); display: block;">
         <p data-lang="el">Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας.</p>
         <p data-lang="el">Επιλέξτε τις προτιμήσεις σας.</p>
         <p data-lang="en" style="display: none;">We use cookies to enhance your experience.</p>
@@ -402,7 +485,7 @@
             document.getElementById('cookie-consent').style.display = 'none';
         }
     </script>
-<script>
+    <script>
         function switchLanguage(lang) {
             document.querySelectorAll('[data-lang]').forEach(el => {
                 el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
@@ -414,6 +497,35 @@
             document.getElementById('languageSwitcher').value = savedLang;
             switchLanguage(savedLang);
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            let testimonials = document.querySelectorAll(".testimonial-box");
+            let currentIndex = 0;
+
+            function showTestimonial(index) {
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.classList.remove("active");
+                    if (i === index) {
+                        testimonial.classList.add("active");
+                    }
+                });
+            }
+
+            function nextTestimonial() {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                showTestimonial(currentIndex);
+            }
+
+            function prevTestimonial() {
+                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                showTestimonial(currentIndex);
+            }
+
+            document.querySelector(".next-testimonial").addEventListener("click", nextTestimonial);
+            document.querySelector(".prev-testimonial").addEventListener("click", prevTestimonial);
+
+            showTestimonial(currentIndex);
+            setInterval(nextTestimonial, 5000); // Change every 5 seconds
+        });        
     </script>
 </body>
 </html>
