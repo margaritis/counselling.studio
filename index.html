@@ -231,18 +231,21 @@
       gtag('js', new Date());
       gtag('config', 'AW-16903592723');
 
-      function gtag_report_conversion(url) {
-          var callback = function () {
-              if (typeof(url) != 'undefined') {
-                  window.location = url;
-              }
-          };
-          gtag('event', 'conversion', {
-              'send_to': 'AW-16903592723/gTIlCKHVlKYaEJO2ofw-',
-              'event_callback': callback
-          });
-          return false;
+      // Helper function to delay opening a URL until a gtag event is sent.
+      // Call it in response to an action that should navigate to a URL.
+      function gtag_report_lead_conversion(url) {
+        var callback = function () {
+          if (typeof url === 'string') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion_event_phone_call_lead_2', {
+          'event_callback': callback,
+          'event_timeout': 2000
+        });
+        return false;
       }
+    
     </script>
 </head>
 <body>
@@ -275,7 +278,7 @@
     <div style="text-align: center; margin: 20px 0;">
         <section class="cta" style="text-align: center;">
             <h2><span data-lang="el">Κλείστε ραντεβού σήμερα!</span><span data-lang="en" style="display: none;">Book an appointment today!</span></h2>
-            <a onclick="gtag_report_conversion('tel:+306984767387')" href="tel:+306984767387" style="display: inline-block; background: #5a6d57; color: white; padding: 15px 25px; border-radius: 8px; font-size: 18px; text-decoration: none;"><span data-lang="el">Καλέστε τώρα</span><span data-lang="en" style="display: none;">Call Now</span></a>
+            <a onclick="gtag_report_lead_conversion('tel:+306984767387')" href="tel:+306984767387" style="display: inline-block; background: #5a6d57; color: white; padding: 15px 25px; border-radius: 8px; font-size: 18px; text-decoration: none;"><span data-lang="el">Καλέστε τώρα</span><span data-lang="en" style="display: none;">Call Now</span></a>
         </section>
     </div>
     <section id="about">
@@ -368,13 +371,13 @@
     <section id="contact-apps" class="cta" style="text-align: center; margin-top: 40px;">
         <h2><span data-lang="el">Επικοινωνήστε μαζί μας</span><span data-lang="en" style="display: none;">Contact Us</span></h2>
         <div class="contact-apps-icons">
-            <a onclick="gtag_report_conversion('https://wa.me/306984767387')" href="https://wa.me/306984767387" target="_blank" style="text-decoration: none;">
+            <a onclick="gtag_report_lead_conversion('https://wa.me/306984767387')" href="https://wa.me/306984767387" target="_blank" style="text-decoration: none;">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; height: 30px; padding: 5px;">
             </a>
-            <a onclick="gtag_report_conversion('viber://contact?number=%2B306984767387')" href="viber://contact?number=%2B306984767387" target="_blank" style="text-decoration: none;">
+            <a onclick="gtag_report_lead_conversion('viber://contact?number=%2B306984767387')" href="viber://contact?number=%2B306984767387" target="_blank" style="text-decoration: none;">
               <img src="https://cdn.worldvectorlogo.com/logos/viber-icon.svg" alt="Viber" style="width: 30px; height: 30px; padding: 5px;">
             </a>
-            <a onclick="gtag_report_conversion('skype:live:.cid.b37c15f173b4fead?chat')" href="skype:live:.cid.b37c15f173b4fead?chat" target="_blank" style="text-decoration: none;">
+            <a onclick="gtag_report_lead_conversion('skype:live:.cid.b37c15f173b4fead?chat')" href="skype:live:.cid.b37c15f173b4fead?chat" target="_blank" style="text-decoration: none;">
                 <img src="https://cdn.worldvectorlogo.com/logos/skype-1.svg" alt="Skype" style="width: 30px; height: 30px; padding: 5px;">
             </a>
         </div>
@@ -429,7 +432,7 @@
         <h2 style="color: #5a6d57; display: none;" data-lang="en">Contact</h2>
         
         <div style="display: flex; flex-direction: column; align-items: center;">
-            <p style="font-size: 18px; margin: 10px 0; display: flex; align-items: center; gap: 5px;"><strong data-lang="el">Τηλέφωνο:</strong><strong data-lang="en" style="display: none;">Phone:</strong><a onclick="gtag_report_conversion('tel:+306984767387')" href="tel:+306984767387" style="color: #5a6d57; text-decoration: none; font-weight: bold;">6984767387</a></p>
+            <p style="font-size: 18px; margin: 10px 0; display: flex; align-items: center; gap: 5px;"><strong data-lang="el">Τηλέφωνο:</strong><strong data-lang="en" style="display: none;">Phone:</strong><a onclick="gtag_report_lead_conversion('tel:+306984767387')" href="tel:+306984767387" style="color: #5a6d57; text-decoration: none; font-weight: bold;">6984767387</a></p>
             <p style="font-size: 18px; margin: 10px 0; display: flex; align-items: center; gap: 5px;"><strong data-lang="el">Διεύθυνση:</strong> <strong data-lang="en" style="display: none;">Address:</strong>
             <a href="https://maps.app.goo.gl/AfipsS6mbWoGuuqW7" target="_blank" style="color: #5a6d57; text-decoration: none; font-weight: bold; display: inline;"><span data-lang="el">Γεννηματά 7, Πυλαία 555 35</span><span data-lang="en" style="display: none;">Gennimata 7, Pylaia 555 35</span></a></p>
         </div>
